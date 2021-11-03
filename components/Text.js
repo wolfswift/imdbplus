@@ -5,8 +5,8 @@ import { render } from "storyblok-rich-text-react-renderer"
 const Text = ({ blok }) => {
   return (
     <SbEditable content={blok} key={blok._uid}>
-      <div className="bg-white w-full">
-        <div className="container mx-auto py-12">
+      <div className="">
+        <div className="">
           {render(blok.text)}     
         </div>
       </div>

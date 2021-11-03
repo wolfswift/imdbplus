@@ -4,34 +4,34 @@ import SbEditable from "storyblok-react";
 const PostLists = ({ blok }) => {
   return (
     <SbEditable content={blok} key={blok._uid}>
-      <ul className="mx-auto w-full flex flex-col items-center">
+      <ul className="">
         {blok.posts.map((post) => {
           const lang = post.lang === "default" ? "/en" : `/${post.lang}`;
           return (
             <li
               key={post.slug}
-              className="max-w-4xl w-full px-10 my-4 py-6 rounded-lg shadow-md bg-white"
+              className=""
             >
-              <div className="flex justify-between items-center">
-                <span className="font-light text-gray-600">
+              <div className="">
+                <span className="">
                   {`
                     ${new Date(post.created_at).getDay()}.
                     ${new Date(post.created_at).getMonth()}.
                     ${new Date(post.created_at).getFullYear()}`}
                 </span>
               </div>
-              <div className="mt-2">
+              <div className="">
                 <a
-                  className="text-2xl text-gray-700 font-bold hover:text-gray-600"
+                  className=""
                   href={`${lang}/blog/${post.slug}`}
                 >
                   {post.content.title}
                 </a>
-                <p className="mt-2 text-gray-600">{post.content.intro}</p>
+                <p className="">{post.content.intro}</p>
               </div>
-              <div className="flex justify-between items-center mt-4">
+              <div className="">
                 <a
-                  className="text-blue-600 hover:underline"
+                  className=""
                   href={`${lang}/blog/${post.slug}`}
                 >
                   Read more

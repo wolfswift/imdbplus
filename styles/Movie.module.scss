@@ -1,0 +1,17 @@
+@import '../styles/colors';
+
+.movie {
+
+  background-color: $color-title-bg;
+  color           : $color-title-fg;
+
+  .title {}
+
+
+  .synopsis {}
+
+}
+
+.test {
+  font-size: 40px;
+}

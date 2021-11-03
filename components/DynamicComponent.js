@@ -7,6 +7,8 @@ import PostsList from './PostsList'
 import Page from './Page'
 import BlogPost from './BlogPost'
 import Text from './Text'
+import Movie from './Movie'
+import Personality from './Personality'
 
 const Components = {
   'teaser': Teaser,
@@ -17,6 +19,8 @@ const Components = {
   'post': BlogPost,
   'text': Text,
   'selected-posts': PostsList,
+  'movie': Movie,
+  'personality': Personality
 }
 
 const DynamicComponent = ({ blok }) => {
