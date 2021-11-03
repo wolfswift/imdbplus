@@ -3,9 +3,21 @@ const Navigation = ({ locale, locales }) => {
     en: 'Home',
     nl: 'Home pagina',
   }
-  const resolveAbout = {
-    en: 'About',
-    nl: 'Over',
+  const resolveMovies = {
+    en: 'Movies',
+    nl: 'Films',
+  }
+  const resolvePeople = {
+    en: 'People',
+    nl: 'Mensen',
+  }
+  const resolveNews = {
+    en: 'News',
+    nl: 'Nieuws',
+  }
+  const resolveMerchandise = {
+    en: 'Shop',
+    nl: 'Winkel',
   }
   const defaultLocale = locale === 'en' ? '/' : `/${locale}/`
   return (
@@ -22,20 +34,21 @@ const Navigation = ({ locale, locales }) => {
             </a>
           </div>
           <div className="">
-            <button className="" type="button">
-                <title>Menu</title>
-            </button>
-          </div>
-          <div className="">
             <ul className="">
               <li>
                 <a href={`${defaultLocale}`} className="">{resolveHome[locale]}</a>
               </li>
               <li>
-                <a href={`${defaultLocale}blog`} className="">Blog</a>
+                <a href={`${defaultLocale}movies`} className="">{resolveMovies[locale]}</a>
               </li>
               <li>
-                <a href={`${defaultLocale}about`} className="">{resolveAbout[locale]}</a>
+                <a href={`${defaultLocale}people`} className="">{resolvePeople[locale]}</a>
+              </li>
+              <li>
+                <a href={`${defaultLocale}news`} className="">{resolveNews[locale]}</a>
+              </li>
+              <li>
+                <a href={`${defaultLocale}merchandise`} className="">{resolveMerchandise[locale]}</a>
               </li>
             </ul>
             <ul className="">
