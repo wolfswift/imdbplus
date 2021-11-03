@@ -3,13 +3,23 @@
 .personality {
 
   background-color: $color-title-bg;
-  color           : $color-title-fg;
+  color: $color-title-fg;
 
   .title {}
 
-  .bio {}
-}
+  .first-name {}
 
-.test {
-  font-size: 40px;
+  .last-name {}
+
+  .date-of-birth {}
+
+  .nationalities {
+    .nationality {}
+  }
+
+  .bio {}
+
+  .pictures{
+    .picture{}
+  }
 }

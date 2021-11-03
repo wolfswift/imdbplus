@@ -3,15 +3,41 @@
 .movie {
 
   background-color: $color-title-bg;
-  color           : $color-title-fg;
+  color: $color-title-fg;
 
   .title {}
 
+  .summary {}
 
   .synopsis {}
 
-}
+  .introduction {}
 
-.test {
-  font-size: 40px;
+  .main_poster{
+    img{}
+  }
+
+  .writers{
+    .writer{}
+  }
+
+  .directors{
+    .director{}
+  }
+
+  .stars{
+    .star{}
+  }
+
+  .genres{
+    .genre{}
+  }
+
+  .pictures{
+    .picture{}
+  }
+
+  .trailers{
+    .trailer{}
+  }
 }

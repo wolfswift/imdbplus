@@ -44,27 +44,35 @@ const Movie = ({ data }) => {
       </div>
       <div>
         {writers.map((item, index) => (
-          <p>{item.name}</p>
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.name}</a>
+          </div>
         ))}
       </div>
       <div>
         {stars.map((item, index) => (
-          <p>{item.name}</p>
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.name}</a>
+          </div>
         ))}
       </div>
       <div>
         {studios.map((item, index) => (
-          <p>{item.content.title}</p>
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.name}</a>
+          </div>
         ))}
       </div>
       <div>
         {genres.map((item, index) => (
-          <p>{item.content.title}</p>
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.name}</a>
+          </div>
         ))}
       </div>
       <div>
         {pictures.map((item, index) => (
-          <img src={item.filename}/>
+          <img src={item.filename} />
         ))}
       </div>
     </SbEditable>
