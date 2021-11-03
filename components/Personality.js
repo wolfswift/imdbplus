@@ -3,21 +3,31 @@ import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Personality.module.scss"
 
-const Personality = ({ blok }) => {
+const Personality = ({ data }) => {
+  var content = data.story.content;
+  
+  // var genres = data.rels.filter(obj => {
+  //   return content.genres.includes(obj.uuid);
+  // })
+  var pictures = content.pictures;
+
   return (
-    <SbEditable content={blok} key={blok._uid}>
+    <SbEditable content={content} key={content._uid}>
       {/* <div className={[styles.movie, styles.test].join(' ')}> */}
       <div className={styles.personality}>
-        <div className={styles.titleWrapper}>
-          <h1 className={styles.titleContent}>
-            {blok.first_name} {blok.last_name}
-          </h1>
-        </div>
+        <h1 className={styles.title}>
+          {content.first_name} {content.last_name}
+        </h1>
       </div>
-      <div className={styles.bioWrapper}>
-        <div className={styles.bioContent}>
-          {render(blok.bio)}
-        </div>
+
+      <div className={styles.bio}>
+        {render(content.bio)}
+      </div>
+      
+      <div>
+        {pictures.map((item, index) => (
+          <img src={item.filename}/>
+        ))}
       </div>
     </SbEditable>
   )

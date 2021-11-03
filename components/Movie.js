@@ -37,7 +37,9 @@ const Movie = ({ data }) => {
       </div>
       <div>
         {directors.map((item, index) => (
-          <p>{item.name}</p>
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.name}</a>
+          </div>
         ))}
       </div>
       <div>
