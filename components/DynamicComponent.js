@@ -9,6 +9,9 @@ import BlogPost from './BlogPost'
 import Text from './Text'
 import Movie from './Movie'
 import Personality from './Personality'
+import Studio from './Studio'
+import Genre from './Genre'
+import Country from './Country'
 
 const Components = {
   'teaser': Teaser,
@@ -20,7 +23,10 @@ const Components = {
   'text': Text,
   'selected-posts': PostsList,
   'movie': Movie,
-  'personality': Personality
+  'personality': Personality,
+  'studio': Studio,
+  'genre' : Genre,
+  'country' : Country
 }
 
 const DynamicComponent = ({ data }) => {
