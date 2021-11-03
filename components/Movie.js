@@ -3,45 +3,67 @@ import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Movie.module.scss"
 
-export async function getStaticProps({ locale, locales, params, preview = false }) {
-  let slug = params.slug ? params.slug.join('/') : 'home'
 
-  let sbParams = {
-    version: "draft", // or 'draft'
-    resolve_relations: ["featured-posts.posts", "selected-posts.posts", "directors"],
-    language: locale,
-  }
- 
-  if (preview) {
-    sbParams.version = "draft"
-    sbParams.cv = Date.now()
-  }
- 
-  let { data } = await Storyblok.get(`cdn/stories/${slug}`, sbParams)
- 
-  return {
-    props: {
-      story: data ? data.story : false,
-      preview,
-      locale,
-      locales,
-    },
-    revalidate: 3600, // revalidate every hour
-  }
-}
+const Movie = ({ data }) => {
+  var content = data.story.content;
+  var directors = data.rels.filter(obj => {
+    return content.directors.includes(obj.uuid);
+  });
+  var stars = data.rels.filter(obj => {
+    return content.stars.includes(obj.uuid);
+  });
+  var writers = data.rels.filter(obj => {
+    return content.writers.includes(obj.uuid);
+  })
+  var studios = data.rels.filter(obj => {
+    return content.studios.includes(obj.uuid);
+  })
+  var genres = data.rels.filter(obj => {
+    return content.genres.includes(obj.uuid);
+  })
+  var pictures = content.pictures;
 
-const Movie = ({ blok }) => {
   return (
-    <SbEditable content={blok} key={blok._uid}>
+    <SbEditable content={content} key={content._uid}>
       {/* <div className={[styles.movie, styles.test].join(' ')}> */}
       <div className={styles.movie}>
         <h1 className={styles.title}>
-          {blok.title}
+          {content.title}
         </h1>
       </div>
 
       <div className={styles.synopsis}>
-        {render(blok.synopsis)}
+        {render(content.synopsis)}
+      </div>
+      <div>
+        {directors.map((item, index) => (
+          <p>{item.name}</p>
+        ))}
+      </div>
+      <div>
+        {writers.map((item, index) => (
+          <p>{item.name}</p>
+        ))}
+      </div>
+      <div>
+        {stars.map((item, index) => (
+          <p>{item.name}</p>
+        ))}
+      </div>
+      <div>
+        {studios.map((item, index) => (
+          <p>{item.content.title}</p>
+        ))}
+      </div>
+      <div>
+        {genres.map((item, index) => (
+          <p>{item.content.title}</p>
+        ))}
+      </div>
+      <div>
+        {pictures.map((item, index) => (
+          <img src={item.filename}/>
+        ))}
       </div>
     </SbEditable>
   )

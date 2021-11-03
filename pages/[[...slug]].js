@@ -4,15 +4,15 @@ import DynamicComponent from '../components/DynamicComponent'
 
 import Storyblok, { useStoryblok } from "../utils/storyblok"
 
-export default function Page({ story, preview, locale, locales }) {
+export default function Page({ data, preview, locale, locales }) {
   const enableBridge = true; // load the storyblok bridge everywhere
   // use the preview variable to enable the bridge only in preview mode
   // const enableBridge = preview;
-  story = useStoryblok(story, enableBridge, locale)
+  data.story = useStoryblok(data.story, enableBridge, locale)
 
   return (
     <Layout locale={locale} locales={locales}>
-      <DynamicComponent blok={story.content} />
+      <DynamicComponent data={data} />
     </Layout>
   )
 }
@@ -23,7 +23,7 @@ export async function getStaticProps({ locale, locales, params, preview = false 
 
   let sbParams = {
     version: "draft", // or 'draft'
-    resolve_relations: ["featured-posts.posts", "selected-posts.posts", "directors"],
+    resolve_relations: ["directors", "writers","stars","studios","genres"],
     language: locale,
   }
  
@@ -36,7 +36,7 @@ export async function getStaticProps({ locale, locales, params, preview = false 
  
   return {
     props: {
-      story: data ? data.story : false,
+      data: data,
       preview,
       locale,
       locales,

@@ -23,12 +23,12 @@ const Components = {
   'personality': Personality
 }
 
-const DynamicComponent = ({ blok }) => {
-  if (typeof Components[blok.component] !== 'undefined') {
-    const Component = Components[blok.component]
-    return <Component blok={blok} />
+const DynamicComponent = ({ data }) => {
+  if (typeof Components[data.story.content.component] !== 'undefined') {
+    const Component = Components[data.story.content.component]
+    return <Component data={data} />
   }
-  return <Placeholder componentName={blok.component}/>
+  return <Placeholder componentName={data.story.content.component}/>
 }
 
 export default DynamicComponent
