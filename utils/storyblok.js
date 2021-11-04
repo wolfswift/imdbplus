@@ -38,6 +38,32 @@ export async function getData(uuid, locale, preview, components) {
   }
 }
 
+export async function getFPSData(uuid, locale, preview, components) {
+
+
+  let sbParams = {
+    version: "draft",
+    language: locale,
+    filter_query: {
+      component: {
+        in: components
+      }
+    }
+  }
+
+  if (preview) {
+    sbParams.version = "draft"
+    sbParams.cv = Date.now()
+  }
+
+  let { data } = await Storyblok.get(`cdn/stories/`, sbParams)
+
+  return {
+    data,
+    revalidate: 3600, // revalidate every hour
+  }
+}
+
 export function useStoryblok(originalStory, preview, locale) {
   let [story, setStory] = useState(originalStory);
 

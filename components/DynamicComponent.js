@@ -13,6 +13,7 @@ import Studio from './Studio'
 import Genre from './Genre'
 import Country from './Country'
 import NewsItem from './NewsItem'
+import FrontpageSlideshow from './FrontpageSlideshow'
 
 const Components = {
   'teaser': Teaser,
@@ -29,6 +30,7 @@ const Components = {
   'genre' : Genre,
   'country' : Country,
   'newsitem': NewsItem,
+  'frontpageslideshow':FrontpageSlideshow
 }
 
 
