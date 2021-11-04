@@ -1,16 +1,21 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
  
-const Teaser = ({blok}) => {
+const Teaser = ({data, level}) => {
+  if(level==='data'){
+    var content = data.story.content;
+  } else {
+    var content = data;
+  }
   return (
-    <SbEditable content={blok}>
+    <SbEditable content={content}>
       <div className="">
         <div className="">
-          <h2 className="">{blok.headline}</h2>
+          <h2 className="">{content.headline}</h2>
           <figure>
-            <img src={blok.image.filename}
-            alt={blok.image.alt} className="" />
-            <figcaption class="">{blok.caption}</figcaption>
+            <img src={content.image.filename}
+            alt={content.image.alt} className="" />
+            <figcaption className="">{content.caption}</figcaption>
           </figure>
         </div>
       </div>

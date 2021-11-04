@@ -3,8 +3,12 @@ import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Personality.module.scss"
 
-const Personality = ({ data }) => {
-  var content = data.story.content;
+const Personality = ({ data,level }) => {
+  if(level==='data'){
+    var content = data.story.content;
+  } else {
+    var content = data;
+  }
   
   // var genres = data.rels.filter(obj => {
   //   return content.genres.includes(obj.uuid);

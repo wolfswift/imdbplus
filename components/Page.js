@@ -1,8 +1,12 @@
 import DynamicComponent from './DynamicComponent'
 import SbEditable from 'storyblok-react'
 
-const Page = ({ data }) => {
-  var content = data.story.content;
+const Page = ({ data, level }) => {
+  if(level==='data'){
+    var content = data.story.content;
+  } else {
+    var content = data;
+  }
   return (
     <SbEditable content={content}>
       <main>

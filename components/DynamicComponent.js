@@ -12,6 +12,7 @@ import Personality from './Personality'
 import Studio from './Studio'
 import Genre from './Genre'
 import Country from './Country'
+import NewsItem from './NewsItem'
 
 const Components = {
   'teaser': Teaser,
@@ -26,20 +27,24 @@ const Components = {
   'personality': Personality,
   'studio': Studio,
   'genre' : Genre,
-  'country' : Country
+  'country' : Country,
+  'newsitem': NewsItem,
 }
 
 
 const DynamicComponent = ({ data }) => {
   let componentType='undefined';
+  let level = 'undefined';
   if(data&&data.story&&data.story.content){
     componentType = data.story.content.component;
+    level='data';
   } else if(data&&data.component){
     componentType = data.component;
+    level='content';
   }
   if (componentType !== 'undefined') {
     const Component = Components[componentType]
-    return <Component data={data} />
+    return <Component data={data} level={level} />
   }
   return <Placeholder componentName={componentType}/>
 }

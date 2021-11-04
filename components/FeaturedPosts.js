@@ -1,18 +1,23 @@
 import React from "react";
 import SbEditable from "storyblok-react";
 
-const FeaturedPosts = ({ blok }) => {
+const FeaturedPosts = ({ data, level }) => {
+  if(level==='data'){
+    var content = data.story.content;
+  } else {
+    var content = data;
+  }
   return (
-    <SbEditable content={blok} key={blok._uid}>
-      <div className="" key={blok._uid}>
+    <SbEditable content={content} key={content._uid}>
+      <div className="" key={content._uid}>
         <div className="">
           <h2 className="">
-            {blok.title}
+            {content.title}
           </h2>
           <div className="" />
         </div>
         <ul className="">
-          {blok.posts.map((post) => {
+          {content.posts.map((post) => {
             const lang = post.lang === "default" ? "/en" : `/${post.lang}`;
 
             return (

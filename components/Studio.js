@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Studio.module.scss"
@@ -6,16 +6,17 @@ import Storyblok, { useStoryblok, getData } from "../utils/storyblok"
 
 
 
-const Studio = ({ data }) => {
-
-  //enriching data
-  var content = data.story.content;
-  const [movies, setMovies] = useState([]);
-  var self = this;
-  getData(data.story.uuid, data.story.lang, content.preview = false, 'movie').then(
-    function (result) {
-      setMovies(result.data.stories);
-    });
+const Studio = ({ data, level }) => {
+  if (level === 'data') {
+    var content = data.story.content;
+    const [movies, setMovies] = useState([]);
+    getData(data.story.uuid, data.story.lang, content.preview = false, 'movie').then(
+      function (result) {
+        setMovies(result.data.stories);
+      });
+  } else {
+    var content = data;
+  }
 
   //returning the HTML
   return (

@@ -8,22 +8,27 @@ import styles from "../styles/Movie.module.scss"
 const Movie = ({ data }) => {
 
   //enriching data
-  var content = data.story.content;
-  var directors = data.rels.filter(obj => {
-    return content.directors.includes(obj.uuid);
-  });
-  var stars = data.rels.filter(obj => {
-    return content.stars.includes(obj.uuid);
-  });
-  var writers = data.rels.filter(obj => {
-    return content.writers.includes(obj.uuid);
-  })
-  var studios = data.rels.filter(obj => {
-    return content.studios.includes(obj.uuid);
-  })
-  var genres = data.rels.filter(obj => {
-    return content.genres.includes(obj.uuid);
-  })
+  if(level==='data'){
+    var content = data.story.content;
+    var directors = data.rels.filter(obj => {
+      return content.directors.includes(obj.uuid);
+    });
+    var stars = data.rels.filter(obj => {
+      return content.stars.includes(obj.uuid);
+    });
+    var writers = data.rels.filter(obj => {
+      return content.writers.includes(obj.uuid);
+    })
+    var studios = data.rels.filter(obj => {
+      return content.studios.includes(obj.uuid);
+    })
+    var genres = data.rels.filter(obj => {
+      return content.genres.includes(obj.uuid);
+    })
+  } else {
+    var content = data;
+  }
+
   var pictures = content.pictures;
 
   //returning the HTML
