@@ -4,7 +4,10 @@ import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Movie.module.scss"
 
 
+
 const Movie = ({ data }) => {
+
+  //enriching data
   var content = data.story.content;
   var directors = data.rels.filter(obj => {
     return content.directors.includes(obj.uuid);
@@ -23,6 +26,7 @@ const Movie = ({ data }) => {
   })
   var pictures = content.pictures;
 
+  //returning the HTML
   return (
     <SbEditable content={content} key={content._uid}>
       {/* <div className={[styles.movie, styles.test].join(' ')}> */}

@@ -29,12 +29,19 @@ const Components = {
   'country' : Country
 }
 
+
 const DynamicComponent = ({ data }) => {
-  if (typeof Components[data.story.content.component] !== 'undefined') {
-    const Component = Components[data.story.content.component]
+  let componentType='undefined';
+  if(data&&data.story&&data.story.content){
+    componentType = data.story.content.component;
+  } else if(data&&data.component){
+    componentType = data.component;
+  }
+  if (componentType !== 'undefined') {
+    const Component = Components[componentType]
     return <Component data={data} />
   }
-  return <Placeholder componentName={data.story.content.component}/>
+  return <Placeholder componentName={componentType}/>
 }
 
 export default DynamicComponent

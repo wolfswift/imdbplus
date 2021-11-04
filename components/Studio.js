@@ -7,6 +7,8 @@ import Storyblok, { useStoryblok, getData } from "../utils/storyblok"
 
 
 const Studio = ({ data }) => {
+
+  //enriching data
   var content = data.story.content;
   const [movies, setMovies] = useState([]);
   var self = this;
@@ -15,6 +17,7 @@ const Studio = ({ data }) => {
       setMovies(result.data.stories);
     });
 
+  //returning the HTML
   return (
     <SbEditable content={content} key={data.uuid}>
       {/* <div className={[styles.movie, styles.test].join(' ')}> */}

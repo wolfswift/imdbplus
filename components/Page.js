@@ -7,7 +7,7 @@ const Page = ({ data }) => {
     <SbEditable content={content}>
       <main>
         {content.body ? content.body.map((content) =>
-          <DynamicComponent blok={data} key={content._uid} />
+          <DynamicComponent data={content} key={content._uid} />
         ) : null}
       </main>
     </SbEditable>

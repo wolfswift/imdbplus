@@ -2,15 +2,16 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 import DynamicIcon from './icons/DynamicIcon'
 
-const Feature = ({blok}) => {
+const Feature = ({data}) => {
+  var content = data;
   return (
-    <SbEditable content={blok} key={blok._uid}>
+    <SbEditable content={content} key={content._uid}>
       <div className="">
-            <DynamicIcon type={blok.icon} />
+            <DynamicIcon type={content.icon} />
             <div className="">
-                <div className="">{blok.name}</div>
+                <div className="">{content.name}</div>
                 <p className="">
-                  {blok.description}
+                  {content.description}
                 </p>
             </div>
         </div>
