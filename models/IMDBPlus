@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-11-04T08:24:20.963Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="L1Pd6YMrxEVdfP5vbOQh" version="14.9.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-04T09:08:49.686Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="fxof90Firsl6Xx12NcPB" version="15.6.8" type="github">
   <diagram id="0bdIZfNtA4d8LaBE0oMZ" name="Page-1">
-    <mxGraphModel dx="2462" dy="1122" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2462" dy="1154" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -13,7 +13,7 @@
         <mxCell id="6As-PiGqnBqaPDX6P0_u-3" value="Personality" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
           <mxGeometry x="704" y="407" width="160" height="138" as="geometry" />
         </mxCell>
-        <mxCell id="6As-PiGqnBqaPDX6P0_u-4" value="+first_name&#xa;+last_name&#xa;+date_of_birth&#xa;+bio&#xa;+nationality&#xa;+pictures" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="6As-PiGqnBqaPDX6P0_u-3" vertex="1">
+        <mxCell id="6As-PiGqnBqaPDX6P0_u-4" value="+first_name&#xa;+last_name&#xa;+date_of_birth&#xa;+bio&#xa;+pictures" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="6As-PiGqnBqaPDX6P0_u-3" vertex="1">
           <mxGeometry y="30" width="160" height="108" as="geometry" />
         </mxCell>
         <mxCell id="6As-PiGqnBqaPDX6P0_u-5" value="" style="endArrow=none;html=1;rounded=0;dashed=1;dashPattern=1 2;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="6As-PiGqnBqaPDX6P0_u-2" target="6As-PiGqnBqaPDX6P0_u-4" edge="1">
