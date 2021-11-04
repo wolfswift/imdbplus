@@ -5,9 +5,38 @@ const Storyblok = new StoryblokClient({
   accessToken: "c1g4yy5Pro9MeJrxV9grQAtt",
   cache: {
     clear: "auto",
-    type: "memory", 
+    type: "memory",
   },
 });
+
+export async function getData(uuid, locale, preview, components) {
+
+
+  let sbParams = {
+    version: "draft",
+    language: locale,
+    filter_query: {
+      component: {
+        in: components
+      },
+      studios: {
+        any_in_array: uuid
+      }
+    }
+  }
+
+  if (preview) {
+    sbParams.version = "draft"
+    sbParams.cv = Date.now()
+  }
+
+  let { data } = await Storyblok.get(`cdn/stories/`, sbParams)
+
+  return {
+    data,
+    revalidate: 3600, // revalidate every hour
+  }
+}
 
 export function useStoryblok(originalStory, preview, locale) {
   let [story, setStory] = useState(originalStory);
@@ -44,14 +73,14 @@ export function useStoryblok(originalStory, preview, locale) {
             language: locale,
           })
           .then(({ data }) => {
-            if(data.story) {
+            if (data.story) {
               setStory(data.story)
             }
           })
           .catch((error) => {
             console.log(error);
-          }) 
-      }) 
+          })
+      })
     }
   }
 
@@ -75,11 +104,11 @@ export function useStoryblok(originalStory, preview, locale) {
   }
 
   useEffect(() => {
-      // only load inside preview mode
-      if(preview) {
-        // first load the bridge, then initialize the event listeners
-        addBridge(initEventListeners);
-      } 
+    // only load inside preview mode
+    if (preview) {
+      // first load the bridge, then initialize the event listeners
+      addBridge(initEventListeners);
+    }
   }, []);
 
   return story;
