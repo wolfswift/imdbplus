@@ -48,6 +48,7 @@ const FrontpageSlideshow = ({ data, level }) => {
 
   //returning the HTML
   return (
+
     <div className={styles.carouselwrapper}>
       <Carousel swipeable={false}
         draggable={false}
@@ -62,21 +63,27 @@ const FrontpageSlideshow = ({ data, level }) => {
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
         dotListClass="custom-dot-list-style">
-        {newsitems.map((item) => (
-          <div className={styles.item}>
-            <div className={styles.mainpicture} style={{ backgroundImage: `url("${item.content.mainpicture.filename}")` }}>
-            <div className={styles.newsiteminfo}>
-              <h1 className={styles.title}>
-                {item.content.title}
-              </h1>
-              <div className={styles.short}>
-                {render(item.content.short)}
-              </div></div>
-            
-            </div>
-          </div>
-        )
-        )}
+        {newsitems.map((item) => {
+          const lang = item.lang === "default" ? "/en" : `/${item.lang}`;
+          return (
+            <a
+              href={`${lang}/newsitem/${item.slug}`}
+            >
+              <div className={styles.item}>
+                <div className={styles.mainpicture} style={{ backgroundImage: `url("${item.content.mainpicture.filename}")` }}>
+                  <div className={styles.newsiteminfo}>
+                    <h1 className={styles.title}>
+                      {item.content.title}
+                    </h1>
+                    <div className={styles.short}>
+                      {render(item.content.short)}
+                    </div></div>
+
+                </div>
+              </div>
+            </a>
+          );
+        })}
       </Carousel>
     </div>
   )
