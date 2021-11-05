@@ -7,16 +7,23 @@
   font-size: 1.1em;
   display: flex;
   padding: 40px 0 0 0;
-  .navlogo {}
+
+  .navlogo {
+    img {
+      min-width: 200px !important;
+    }
+  }
 
   .navlinkswrapper {
     display: flex;
     align-items: center;
     flex: 1;
+
     .navlinks {
       display: flex;
       flex: 1;
       padding: 0 0 0 25px;
+
       .navlink {
         margin-left: 10px;
 
@@ -24,7 +31,8 @@
           text-decoration: none;
           padding: 5px 10px;
           border: 5px solid transparent;
-          &:hover{
+
+          &:hover {
             border: 5px solid black;
           }
         }
@@ -35,15 +43,17 @@
 
   .navlocales {
     display: flex;
-    align-self: flex-end;
+    align-items: center;
 
     .navlocale {
       margin-left: 20px;
+
       a {
         text-decoration: none;
         padding: 5px 10px;
         border: 5px solid transparent;
-        &:hover{
+
+        &:hover {
           border: 5px solid black;
         }
       }

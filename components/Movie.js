@@ -53,64 +53,64 @@ const Movie = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
-        </div>
+          <div class={styles.imagegallery}>
+            {pictures.map((item, index) => (
+              <div className={styles.image} style={{ backgroundImage: `url("${item.filename}")` }}></div>
+            ))}
+          </div>
+          <div className={styles.synopsis}>
+            {render(content.synopsis)}
+          </div>
+          <div>
+            {directors.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.name}</a>
+              </div>
+            ))}
+          </div>
+          <div>
+            {writers.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.name}</a>
+              </div>
+            ))}
+          </div>
+          <div>
+            {stars.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.name}</a>
+              </div>
+            ))}
+          </div>
+          <div>
+            {studios.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.name}</a>
+              </div>
+            ))}
+          </div>
+          <div>
+            {genres.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.name}</a>
+              </div>
+            ))}
+          </div>
 
-        <div className={styles.synopsis}>
-          {render(content.synopsis)}
-        </div>
-        <div>
-          {directors.map((item, index) => (
-            <div>
-              <a href={`/${item.full_slug}`} className="">{item.name}</a>
-            </div>
-          ))}
-        </div>
-        <div>
-          {writers.map((item, index) => (
-            <div>
-              <a href={`/${item.full_slug}`} className="">{item.name}</a>
-            </div>
-          ))}
-        </div>
-        <div>
-          {stars.map((item, index) => (
-            <div>
-              <a href={`/${item.full_slug}`} className="">{item.name}</a>
-            </div>
-          ))}
-        </div>
-        <div>
-          {studios.map((item, index) => (
-            <div>
-              <a href={`/${item.full_slug}`} className="">{item.name}</a>
-            </div>
-          ))}
-        </div>
-        <div>
-          {genres.map((item, index) => (
-            <div>
-              <a href={`/${item.full_slug}`} className="">{item.name}</a>
-            </div>
-          ))}
-        </div>
-        <div>
-          {pictures.map((item, index) => (
-            <img src={item.filename} />
-          ))}
-        </div>
-        <div>
-          {products.map((item, index) => (
-            <div>
-              <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
-            </div>
-          ))}
-        </div>
-        <div>
-          {newsitems.map((item, index) => (
-            <div>
-              <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
-            </div>
-          ))}
+          <div>
+            {products.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
+              </div>
+            ))}
+          </div>
+          <div>
+            {newsitems.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
     </SbEditable>
