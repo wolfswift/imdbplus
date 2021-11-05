@@ -5,7 +5,7 @@ import styles from "../styles/Movie.module.scss"
 
 
 
-const Movie = ({ data }) => {
+const Movie = ({ data, level }) => {
 
   //enriching data
   if(level==='data'){
