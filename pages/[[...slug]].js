@@ -11,7 +11,7 @@ export default function Page({ data, preview, locale, locales }) {
   data.story = useStoryblok(data.story, enableBridge, locale)
 
   return (
-    <Layout locale={locale} locales={locales}>
+    <Layout locale={locale} locales={locales} data={data}>
       <DynamicComponent data={data} />
     </Layout>
   )

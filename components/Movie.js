@@ -1,14 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Movie.module.scss"
+import { getData } from "../utils/storyblok"
 
 
 
 const Movie = ({ data, level }) => {
 
   //enriching data
-  if(level==='data'){
+  if (level === 'data') {
     var content = data.story.content;
     var directors = data.rels.filter(obj => {
       return content.directors.includes(obj.uuid);
@@ -28,6 +29,18 @@ const Movie = ({ data, level }) => {
   } else {
     var content = data;
   }
+
+  const [products, setProducts] = useState([]);
+  getData(data.story.uuid, data.story.lang, content.preview = false, 'product', 'movies').then(
+    function (result) {
+      setProducts(result.data.stories);
+    });
+
+  const [newsitems, setNewsitems] = useState([]);
+  getData(data.story.uuid, data.story.lang, content.preview = false, 'newsitem', 'movies').then(
+    function (result) {
+      setNewsitems(result.data.stories);
+    });
 
   var pictures = content.pictures;
 
@@ -82,6 +95,20 @@ const Movie = ({ data, level }) => {
       <div>
         {pictures.map((item, index) => (
           <img src={item.filename} />
+        ))}
+      </div>
+      <div>
+        {products.map((item, index) => (
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
+          </div>
+        ))}
+      </div>
+      <div>
+        {newsitems.map((item, index) => (
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
+          </div>
         ))}
       </div>
     </SbEditable>

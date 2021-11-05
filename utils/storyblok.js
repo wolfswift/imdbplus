@@ -18,7 +18,7 @@ export async function getAllItems(components) {
 }
 
 export async function getData(uuid, locale, preview, components, itemtype) {
-  let sbParams = { version: "draft", language: locale, filter_query: { component: { in: components }}}
+  let sbParams = { version: "draft", language: locale, filter_query: { component: { in: components } } }
 
   if (itemtype) {
     switch (itemtype) {
@@ -33,6 +33,9 @@ export async function getData(uuid, locale, preview, components, itemtype) {
         break;
       case "products":
         sbParams.filter_query.products = { any_in_array: uuid };
+        break;
+      case "personalities":
+        sbParams.filter_query.personalities = { any_in_array: uuid };
         break;
     }
   }

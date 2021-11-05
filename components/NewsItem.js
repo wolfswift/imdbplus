@@ -10,6 +10,12 @@ const NewsItem = ({ data, level }) => {
   //enriching data
   if (level === 'data') {
     var content = data.story.content;
+    var movies = data.rels.filter(obj => {
+      return content.movies.includes(obj.uuid);
+    });
+    var personalities = data.rels.filter(obj => {
+      return content.personalities.includes(obj.uuid);
+    });
   } else {
     var content = data;
   }
@@ -27,6 +33,20 @@ const NewsItem = ({ data, level }) => {
         </div>
         <div className={styles.article}>
           {render(content.article)}
+        </div>
+        <div>
+          {movies.map((item, index) => (
+            <div>
+              <a href={`/${item.full_slug}`} className="">{item.name}</a>
+            </div>
+          ))}
+        </div>
+        <div>
+          {personalities.map((item, index) => (
+            <div>
+              <a href={`/${item.full_slug}`} className="">{item.name}</a>
+            </div>
+          ))}
         </div>
       </div>
     </SbEditable>

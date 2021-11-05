@@ -46,7 +46,7 @@ const PersonalityList = ({ data, level }) => {
             <div className="">
               <a
                 className=""
-                href={`${lang}/movie/${item.slug}`}
+                href={`${lang}/personality/${item.slug}`}
               >
                 {item.content.first_name} {item.content.last_name}
               </a>
@@ -55,7 +55,7 @@ const PersonalityList = ({ data, level }) => {
             <div className="">
               <a
                 className=""
-                href={`${lang}/movie/${item.slug}`}
+                href={`${lang}/personality/${item.slug}`}
               >
                 Read more
               </a>

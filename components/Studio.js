@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Studio.module.scss"
-import Storyblok, { useStoryblok, getData } from "../utils/storyblok"
+import { getData } from "../utils/storyblok"
 
 
 

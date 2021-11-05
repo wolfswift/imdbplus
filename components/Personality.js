@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Personality.module.scss"
+import { getData } from "../utils/storyblok"
 
 const Personality = ({ data,level }) => {
   if(level==='data'){
@@ -9,6 +10,18 @@ const Personality = ({ data,level }) => {
   } else {
     var content = data;
   }
+
+  const [products, setProducts] = useState([]);
+  getData(data.story.uuid, data.story.lang, content.preview = false, 'product', 'personalities').then(
+    function (result) {
+      setProducts(result.data.stories);
+    });
+
+  const [newsitems, setNewsitems] = useState([]);
+  getData(data.story.uuid, data.story.lang, content.preview = false, 'newsitem', 'personalities').then(
+    function (result) {
+      setNewsitems(result.data.stories);
+    });
   
   // var genres = data.rels.filter(obj => {
   //   return content.genres.includes(obj.uuid);
@@ -31,6 +44,21 @@ const Personality = ({ data,level }) => {
       <div>
         {pictures.map((item, index) => (
           <img src={item.filename}/>
+        ))}
+      </div>
+
+      <div>
+        {products.map((item, index) => (
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
+          </div>
+        ))}
+      </div>
+      <div>
+        {newsitems.map((item, index) => (
+          <div>
+            <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
+          </div>
         ))}
       </div>
     </SbEditable>
