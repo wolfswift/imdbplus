@@ -9,15 +9,15 @@ import Storyblok, { useStoryblok, getData } from "../utils/storyblok"
 const Studio = ({ data, level }) => {
   if (level === 'data') {
     var content = data.story.content;
-    const [movies, setMovies] = useState([]);
-    getData(data.story.uuid, data.story.lang, content.preview = false, 'movie').then(
-      function (result) {
-        setMovies(result.data.stories);
-      });
+    
   } else {
     var content = data;
   }
-
+  const [movies, setMovies] = useState([]);
+  getData(data.story.uuid, data.story.lang, content.preview = false, 'movie').then(
+    function (result) {
+      setMovies(result.data.stories);
+    });
   //returning the HTML
   return (
     <SbEditable content={content} key={data.uuid}>
