@@ -1,6 +1,7 @@
 import Head from '../components/Head'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import styles from "../styles/Layout.module.scss"
 
 const Layout = ({ children, locale, locales, data }) => {
 
@@ -14,8 +15,8 @@ const Layout = ({ children, locale, locales, data }) => {
   }
   let description = "description for page";
   return (
-    <div className="">
-      <Head title={title} description={description} />
+    <div className={styles.layout}>
+      <Head title={title} description={description} className={styles.head}/>
       <Navigation locale={locale} locales={locales} />
       {children}
       <Footer />

@@ -1,0 +1,53 @@
+@import '../styles/colors';
+
+.navigation {
+  font-family: 'Karla', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 900;
+  line-height: 1.3em;
+  font-size: 1.2em;
+  display: flex;
+  padding: 40px 0;;
+  .navlogo {}
+
+  .navlinkswrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    .navlinks {
+      display: flex;
+      flex: 1;
+      padding: 0 0 0 25px;
+      .navlink {
+        margin-left: 20px;
+
+        a {
+          text-decoration: none;
+          padding: 5px 10px;
+          border: 5px solid transparent;
+          &:hover{
+            border: 5px solid black;
+          }
+        }
+
+      }
+    }
+  }
+
+  .navlocales {
+    display: flex;
+    align-self: flex-end;
+
+    .navlocale {
+      margin-left: 20px;
+      a {
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 5px solid transparent;
+        &:hover{
+          border: 5px solid black;
+        }
+      }
+    }
+  }
+}

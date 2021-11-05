@@ -1,4 +1,6 @@
 import '../styles/_globals.scss'
+import '../styles/_colors.scss'
+import '../styles/_fonts.scss'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 

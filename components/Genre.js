@@ -7,15 +7,17 @@ const Genre = ({ data }) => {
   var content = data.story.content;
   return (
     <SbEditable content={content} key={content._uid}>
-      {/* <div className={[styles.movie, styles.test].join(' ')}> */}
-      <div className={styles.studio}>
-        <h1 className={styles.title}>
-          {content.title}
-        </h1>
-      </div>
-      <div className={styles.description}>
-        {render(content.description)}
-      </div>
+      <main>
+        {/* <div className={[styles.movie, styles.test].join(' ')}> */}
+        <div className={styles.studio}>
+          <h1 className={styles.title}>
+            {content.title}
+          </h1>
+        </div>
+        <div className={styles.description}>
+          {render(content.description)}
+        </div>
+      </main>
     </SbEditable>
   )
 }

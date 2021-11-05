@@ -2,18 +2,100 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Karla', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 20px;
 }
 
-h1, .title{
-  font-family: 'Bungee', cursive ;
+
+h2,
+h3,
+h4,
+.title {
+  font-family: 'Karla', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 700;
+  line-height: 1.3em;
+}
+
+h1 {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 3em;
+  line-height: 1.3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1.8em;
 }
 
 a {
-  
+  color: black;
+
+  &:visited {
+    color: black;
+  }
 }
 
-* {
-  
+* {}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  grid-column: 2 / span 10;
+}
+
+main {
+  grid-column: 2 / span 10;
+}
+
+footer {
+  grid-column: 1 / span 12;
+}
+
+@media (min-width: 1024px) {
+
+
+  header {
+    grid-column: 3 / span 8;
+  }
+
+  main {
+    grid-column: 3 / span 8;
+  }
+
+  footer {
+    grid-column: 1 / span 12;
+  }
+}
+
+@media (min-width: 1920px) {
+
+
+  header {
+    grid-column: 4 / span 6;
+  }
+
+  main {
+    grid-column: 4 / span 6;
+  }
+
+  footer {
+    grid-column: 1 / span 12;
+  }
+}
+
+.react-multiple-carousel__arrow {
+  background: rgb(255 255 255) !important;
+  box-shadow: 2px 2px 0px rgb(0 0 0);
+  font-weight: 800;
+}
+
+.react-multiple-carousel__arrow::before {
+  color: #000 !important;
 }

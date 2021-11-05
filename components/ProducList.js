@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
-import styles from "../styles/Intro.module.scss"
+import styles from "../styles/ProductList.module.scss"
 import { getAllItems } from "../utils/storyblok"
 
 const ProductList = ({ data, level }) => {
@@ -18,52 +18,38 @@ const ProductList = ({ data, level }) => {
 
   return (
 
-    <ul className="">
-      {/* {
-      items.map((item) => (
-        <li key={item.content._uid}>{item.content._uid}</li>
-      )
-      )} */}
-
-
-
-
-      {items.map((item) => {
-        const lang = item.lang === "default" ? "/en" : `/${item.lang}`;
-        return (
-          <li
+    <div className={styles.list}>
+    {items.map((item) => {
+      const lang = item.lang === "default" ? "/en" : `/${item.lang}`;
+      return (
+        <a
+          href={`${lang}/product/${item.slug}`}
+        >
+          <div
             key={item.slug}
-            className=""
+            className={styles.item}
           >
-            <div className="">
+            <div className={styles.date}>
               <span className="">
                 {`
-                    ${new Date(item.created_at).getDay()}.
-                    ${new Date(item.created_at).getMonth()}.
-                    ${new Date(item.created_at).getFullYear()}`}
+                  ${new Date(item.created_at).getDay()}.
+                  ${new Date(item.created_at).getMonth()}.
+                  ${new Date(item.created_at).getFullYear()}`}
               </span>
             </div>
-            <div className="">
-              <a
-                className=""
-                href={`${lang}/product/${item.slug}`}
-              >
+            <div className={styles.mainpart}>
+
+              <h2 className={styles.title}>
                 {item.content.title}
-              </a>
-              <p className="">{render(item.content.summary)}</p>
+              </h2>
+              <p className={styles.summary}>{render(item.content.short)}</p>
             </div>
-            <div className="">
-              <a
-                className=""
-                href={`${lang}/product/${item.slug}`}
-              >
-                Read more 
-              </a>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+          </div>
+        </a>
+      );
+    })}
+  </div>
+
 
   );
 };

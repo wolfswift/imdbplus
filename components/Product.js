@@ -32,39 +32,45 @@ const Product = ({ data, level }) => {
   //returning the HTML
   return (
     <SbEditable content={content} key={data.uuid}>
-      {/* <div className={[styles.movie, styles.test].join(' ')}> */}
-      <div className={styles.product}>
-        <h1 className={styles.title}>
-          {content.title}
-        </h1>
-      </div>
-      <div className={styles.price}>
-        {content.price}
-      </div>
-      <div className={styles.pictures}>
-        {content.pictures.map((item, index) => (
-          <div className={styles.picture} key={index}>
-            <img src={item.filename} />
+      <main>
+        {/* <div className={[styles.movie, styles.test].join(' ')}> */}
+        <div className={styles.product}>
+          <h1 className={styles.title}>
+            {content.title}
+          </h1>
+
+          <div className={styles.price}>
+            {content.price}
           </div>
-        ))}
-      </div>
-      <div className={styles.description}>
-        {render(content.description)}
-      </div>
-      <div>
-        {movies.map((item, index) => (
+          <div className={styles.pictures}>
+            {content.pictures.map((item, index) => (
+              <div className={styles.picture} key={index}>
+                <img src={item.filename} />
+              </div>
+            ))}
+          </div>
+          <div className={styles.short}>
+            {render(content.short)}
+          </div>
+          <div className={styles.description}>
+            {render(content.description)}
+          </div>
           <div>
-            <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
+            {movies.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div>
-        {personalities.map((item, index) => (
           <div>
-            <a href={`/${item.full_slug}`} className="">{item.content.first_name} {item.content.last_name}</a>
+            {personalities.map((item, index) => (
+              <div>
+                <a href={`/${item.full_slug}`} className="">{item.content.first_name} {item.content.last_name}</a>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </main>
     </SbEditable>
   )
 }

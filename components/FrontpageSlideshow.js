@@ -4,6 +4,9 @@ import SbEditable from 'storyblok-react'
 import { getFPSData } from "../utils/storyblok"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import styles from "../styles/FrontpageSlideshow.module.scss"
+import { render } from "storyblok-rich-text-react-renderer"
+
 
 
 
@@ -13,15 +16,15 @@ const FrontpageSlideshow = ({ data, level }) => {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 1
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 1
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 1
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -45,28 +48,37 @@ const FrontpageSlideshow = ({ data, level }) => {
 
   //returning the HTML
   return (
-
-    <Carousel swipeable={false}
-    draggable={false}
-    showDots={true}
-    responsive={responsive}
-    ssr={true} // means to render carousel on server-side.
-    infinite={true}
-    autoPlay={true}
-    autoPlaySpeed={2000}
-    keyBoardControl={true}
-    customTransition="all .5"
-    transitionDuration={200}
-    containerClass="carousel-container"
-    removeArrowOnDeviceType={["tablet", "mobile"]}
-    dotListClass="custom-dot-list-style"
-    itemClass="carousel-item-padding-40-px">
-      {newsitems.map((newsitem) => (
-        <div key={newsitem.content._uid}>{newsitem.content._uid}</div>
-      )
-      )}
-    </Carousel>
-
+    <div className={styles.carouselwrapper}>
+      <Carousel swipeable={false}
+        draggable={false}
+        showDots={true}
+        responsive={responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={5000}
+        keyBoardControl={true}
+        customTransition="all 0.5s ease-in-out"
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        dotListClass="custom-dot-list-style">
+        {newsitems.map((item) => (
+          <div className={styles.item}>
+            <div className={styles.mainpicture} style={{ backgroundImage: `url("${item.content.mainpicture.filename}")` }}>
+            <div className={styles.newsiteminfo}>
+              <h1 className={styles.title}>
+                {item.content.title}
+              </h1>
+              <div className={styles.short}>
+                {render(item.content.short)}
+              </div></div>
+            
+            </div>
+          </div>
+        )
+        )}
+      </Carousel>
+    </div>
   )
 }
 

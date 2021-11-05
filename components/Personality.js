@@ -30,6 +30,7 @@ const Personality = ({ data,level }) => {
 
   return (
     <SbEditable content={content} key={content._uid}>
+      <main>
       {/* <div className={[styles.movie, styles.test].join(' ')}> */}
       <div className={styles.personality}>
         <h1 className={styles.title}>
@@ -61,6 +62,7 @@ const Personality = ({ data,level }) => {
           </div>
         ))}
       </div>
+      </main>
     </SbEditable>
   )
 }

@@ -1,43 +1,13 @@
 @import '../styles/colors';
 
-.movie {
+.newsitem {
+  .title{
 
-  background-color: $color-title-bg;
-  color: $color-title-fg;
-
-  .title {}
-
-  .summary {}
-
-  .synopsis {}
-
-  .introduction {}
-
-  .main_poster{
-    img{}
   }
+  .short{
 
-  .writers{
-    .writer{}
   }
-
-  .directors{
-    .director{}
-  }
-
-  .stars{
-    .star{}
-  }
-
-  .genres{
-    .genre{}
-  }
-
-  .pictures{
-    .picture{}
-  }
-
-  .trailers{
-    .trailer{}
+  .article{
+    
   }
 }

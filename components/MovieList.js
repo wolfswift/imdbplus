@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
-import styles from "../styles/Intro.module.scss"
+import styles from "../styles/MovieList.module.scss"
 import { getAllItems } from "../utils/storyblok"
 
 const MovieList = ({ data, level }) => {
@@ -18,52 +18,38 @@ const MovieList = ({ data, level }) => {
 
   return (
 
-    <ul className="">
-      {/* {
-      items.map((item) => (
-        <li key={item.content._uid}>{item.content._uid}</li>
-      )
-      )} */}
-
-
-
-
+    <div className={styles.list}>
       {items.map((item) => {
         const lang = item.lang === "default" ? "/en" : `/${item.lang}`;
         return (
-          <li
-            key={item.slug}
-            className=""
+          <a
+            href={`${lang}/movie/${item.slug}`}
           >
-            <div className="">
-              <span className="">
-                {`
+            <div
+              key={item.slug}
+              className={styles.item}
+            >
+              <div className={styles.date}>
+                <span className="">
+                  {`
                     ${new Date(item.created_at).getDay()}.
                     ${new Date(item.created_at).getMonth()}.
                     ${new Date(item.created_at).getFullYear()}`}
-              </span>
+                </span>
+              </div>
+              <div className={styles.mainpart}>
+
+                <h2 className={styles.title}>
+                  {item.content.title}
+                </h2>
+
+                <p className={styles.summary}>{render(item.content.summary)}</p>
+              </div>
             </div>
-            <div className="">
-              <a
-                className=""
-                href={`${lang}/movie/${item.slug}`}
-              >
-                {item.content.title}
-              </a>
-              <p className="">{render(item.content.summary)}</p>
-            </div>
-            <div className="">
-              <a
-                className=""
-                href={`${lang}/movie/${item.slug}`}
-              >
-                Read more
-              </a>
-            </div>
-          </li>
+          </a>
         );
       })}
-    </ul>
+    </div>
 
   );
 };
