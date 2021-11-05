@@ -20,7 +20,6 @@ const NewsItem = ({ data, level }) => {
   } else {
     var content = data;
   }
-
   //returning the HTML
   return (
     <SbEditable content={content} key={content._uid}>
@@ -30,6 +29,8 @@ const NewsItem = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
+          <div class={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
+          </div>
           <div className={styles.short}>
             {render(content.short)}
           </div>

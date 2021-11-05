@@ -38,7 +38,8 @@ const Product = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
-
+          <div class={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
+          </div>
           <div className={styles.price}>
             {content.price}
           </div>
