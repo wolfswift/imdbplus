@@ -46,7 +46,7 @@ const NewsItemList = ({ data, level }) => {
             <div className="">
               <a
                 className=""
-                href={`${lang}/movie/${item.slug}`}
+                href={`${lang}/newsitem/${item.slug}`}
               >
                 {item.content.title}
               </a>
@@ -55,7 +55,7 @@ const NewsItemList = ({ data, level }) => {
             <div className="">
               <a
                 className=""
-                href={`${lang}/movie/${item.slug}`}
+                href={`${lang}/newsitem/${item.slug}`}
               >
                 Read more
               </a>

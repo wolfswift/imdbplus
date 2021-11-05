@@ -6,14 +6,15 @@ import styles from "../styles/NewsItem.module.scss"
 
 
 const NewsItem = ({ data, level }) => {
-
+  var movies=[];
+  var personalities=[];
   //enriching data
   if (level === 'data') {
     var content = data.story.content;
-    var movies = data.rels.filter(obj => {
+    movies = data.rels.filter(obj => {
       return content.movies.includes(obj.uuid);
     });
-    var personalities = data.rels.filter(obj => {
+    personalities = data.rels.filter(obj => {
       return content.personalities.includes(obj.uuid);
     });
   } else {

@@ -46,7 +46,7 @@ const ProductList = ({ data, level }) => {
             <div className="">
               <a
                 className=""
-                href={`${lang}/movie/${item.slug}`}
+                href={`${lang}/product/${item.slug}`}
               >
                 {item.content.title}
               </a>
@@ -55,7 +55,7 @@ const ProductList = ({ data, level }) => {
             <div className="">
               <a
                 className=""
-                href={`${lang}/movie/${item.slug}`}
+                href={`${lang}/product/${item.slug}`}
               >
                 Read more 
               </a>
