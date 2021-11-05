@@ -53,18 +53,16 @@ const FrontpageSlideshow = ({ data, level }) => {
     ssr={true} // means to render carousel on server-side.
     infinite={true}
     autoPlay={true}
-    autoPlaySpeed={1000}
+    autoPlaySpeed={500}
     keyBoardControl={true}
     customTransition="all .5"
-    transitionDuration={500}
+    transitionDuration={200}
     containerClass="carousel-container"
     removeArrowOnDeviceType={["tablet", "mobile"]}
     dotListClass="custom-dot-list-style"
     itemClass="carousel-item-padding-40-px">
       {newsitems.map((newsitem) => (
-
-        <div>{newsitem.content._uid}</div>
-
+        <div key={newsitem.content._uid}>{newsitem.content._uid}</div>
       )
       )}
     </Carousel>
