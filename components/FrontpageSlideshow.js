@@ -53,7 +53,7 @@ const FrontpageSlideshow = ({ data, level }) => {
     ssr={true} // means to render carousel on server-side.
     infinite={true}
     autoPlay={true}
-    autoPlaySpeed={500}
+    autoPlaySpeed={2000}
     keyBoardControl={true}
     customTransition="all .5"
     transitionDuration={200}
