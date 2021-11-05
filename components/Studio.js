@@ -14,7 +14,7 @@ const Studio = ({ data, level }) => {
     var content = data;
   }
   const [movies, setMovies] = useState([]);
-  getData(data.story.uuid, data.story.lang, content.preview = false, 'movie').then(
+  getData(data.story.uuid, data.story.lang, content.preview = false, 'movie','studios').then(
     function (result) {
       setMovies(result.data.stories);
     });

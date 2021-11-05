@@ -14,6 +14,12 @@ import Genre from './Genre'
 import Country from './Country'
 import NewsItem from './NewsItem'
 import FrontpageSlideshow from './FrontpageSlideshow'
+import Intro from './Intro'
+import MovieList from './MovieList'
+import NewsItemList from './NewsItemList'
+import PersonalityList from './PersonalityList'
+import ProductList from './ProducList'
+import Product from './Product'
 
 const Components = {
   'teaser': Teaser,
@@ -30,7 +36,13 @@ const Components = {
   'genre' : Genre,
   'country' : Country,
   'newsitem': NewsItem,
-  'frontpageslideshow':FrontpageSlideshow
+  'frontpageslideshow':FrontpageSlideshow,
+  'intro':Intro,
+  'movielist':MovieList,
+  'newsitemlist':NewsItemList,
+  'productlist':ProductList,
+  'personalitylist':PersonalityList,
+  'product':Product
 }
 
 

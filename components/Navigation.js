@@ -39,16 +39,16 @@ const Navigation = ({ locale, locales }) => {
                 <a href={`${defaultLocale}`} className="">{resolveHome[locale]}</a>
               </li>
               <li>
-                <a href={`${defaultLocale}movies`} className="">{resolveMovies[locale]}</a>
+                <a href={`${defaultLocale}pages/movies`} className="">{resolveMovies[locale]}</a>
               </li>
               <li>
-                <a href={`${defaultLocale}people`} className="">{resolvePeople[locale]}</a>
+                <a href={`${defaultLocale}pages/people`} className="">{resolvePeople[locale]}</a>
               </li>
               <li>
-                <a href={`${defaultLocale}news`} className="">{resolveNews[locale]}</a>
+                <a href={`${defaultLocale}pages/news`} className="">{resolveNews[locale]}</a>
               </li>
               <li>
-                <a href={`${defaultLocale}merchandise`} className="">{resolveMerchandise[locale]}</a>
+                <a href={`${defaultLocale}pages/shop`} className="">{resolveMerchandise[locale]}</a>
               </li>
             </ul>
             <ul className="">

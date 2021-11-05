@@ -9,19 +9,31 @@ const Storyblok = new StoryblokClient({
   },
 });
 
-export async function getData(uuid, locale, preview, components) {
+export async function getAllItems(components) {
+  let { data } = await Storyblok.get(`cdn/stories/`, { version: "draft", filter_query: { component: { in: components } } })
+  return {
+    data,
+    revalidate: 3600, // revalidate every hour
+  }
+}
 
+export async function getData(uuid, locale, preview, components, itemtype) {
+  let sbParams = { version: "draft", language: locale, filter_query: { component: { in: components }}}
 
-  let sbParams = {
-    version: "draft",
-    language: locale,
-    filter_query: {
-      component: {
-        in: components
-      },
-      studios: {
-        any_in_array: uuid
-      }
+  if (itemtype) {
+    switch (itemtype) {
+      case "studios":
+        sbParams.filter_query.studios = { any_in_array: uuid };
+        break;
+      case "movies":
+        sbParams.filter_query.movies = { any_in_array: uuid };
+        break;
+      case "newsitems":
+        sbParams.filter_query.newsitems = { any_in_array: uuid };
+        break;
+      case "products":
+        sbParams.filter_query.products = { any_in_array: uuid };
+        break;
     }
   }
 
