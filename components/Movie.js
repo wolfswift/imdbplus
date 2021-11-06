@@ -3,6 +3,9 @@ import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Movie.module.scss"
 import { getData } from "../utils/storyblok"
+import RelatedItemGallerySmall from "./RelatedItemGallerySmall"
+import RelatedItemGallery from "./RelatedItemGallery"
+import InPageSlideshow from "./InPageSlideshow"
 
 
 
@@ -53,64 +56,31 @@ const Movie = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
-          <div className={styles.imagegallery}>
-            {pictures.map((item, index) => (
-              <div className={styles.image} style={{ backgroundImage: `url("${item.filename}")` }}></div>
+          <div className={styles.genrelist}>
+            {genres.map((item, index) => (
+              <div className={styles.genre}>
+                {item.name}
+              </div>
             ))}
+          </div>
+          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
+          </div>
+          <div className={styles.imagegallery}>
+            <InPageSlideshow pictures={pictures}></InPageSlideshow>
+          </div>
+          
+          <div className={styles.short}>
+            {render(content.short)}
           </div>
           <div className={styles.synopsis}>
             {render(content.synopsis)}
           </div>
-          <div>
-            {directors.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.name}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            {writers.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.name}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            {stars.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.name}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            {studios.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.name}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            {genres.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.name}</a>
-              </div>
-            ))}
-          </div>
-
-          <div>
-            {products.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            {newsitems.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
-              </div>
-            ))}
-          </div>
+          
+          <RelatedItemGallerySmall items={directors} title="Directors" type="personality"></RelatedItemGallerySmall>
+          <RelatedItemGallerySmall items={writers} title="Writers" type="personality"></RelatedItemGallerySmall>
+          <RelatedItemGallerySmall items={stars} title="Stars" type="personality"></RelatedItemGallerySmall>
+          <RelatedItemGallery items={products} title="Merchandise" type="product"></RelatedItemGallery>
+          <RelatedItemGallery items={newsitems} title="News" type="newsitem"></RelatedItemGallery>
         </div>
       </main>
     </SbEditable>

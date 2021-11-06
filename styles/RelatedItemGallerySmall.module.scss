@@ -1,0 +1,22 @@
+@import '../styles/colors';
+
+.relateditemgallery {
+
+    margin-top: 20 px;
+    display: grid;
+    grid-template-columns: repeat(12, 120px);
+    align-items: center;
+
+
+  .title {
+    font-size: 1em;
+    font-weight: 800;
+  }
+
+  .relateditems {
+    
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+  
+  }
+}
