@@ -2,6 +2,7 @@ import React from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/NewsItem.module.scss"
+import RelatedItemGallery from "./RelatedItemGallery"
 
 
 
@@ -29,7 +30,7 @@ const NewsItem = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
-          <div class={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
+          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
           </div>
           <div className={styles.short}>
             {render(content.short)}
@@ -37,20 +38,9 @@ const NewsItem = ({ data, level }) => {
           <div className={styles.article}>
             {render(content.article)}
           </div>
-          <div>
-            {movies.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.name}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            {personalities.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.name}</a>
-              </div>
-            ))}
-          </div>
+          <RelatedItemGallery items={movies} title="Related Movies" type="movie"></RelatedItemGallery>
+          <RelatedItemGallery items={personalities} title="Related Stars" type="personality"></RelatedItemGallery>
+      
         </div>
       </main>
     </SbEditable>

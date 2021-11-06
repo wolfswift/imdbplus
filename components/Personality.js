@@ -37,7 +37,7 @@ const Personality = ({ data, level }) => {
             {content.first_name} {content.last_name}
           </h1>
 
-          <div class={styles.imagegallery}>
+          <div className={styles.imagegallery}>
             {pictures.map((item, index) => (
               <div className={styles.image} style={{ backgroundImage: `url("${item.filename}")` }}></div>
             ))}

@@ -3,7 +3,8 @@ import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Product.module.scss"
 import Storyblok, { useStoryblok, getData } from "../utils/storyblok"
-
+import RelatedItem from "./RelatedItem"
+import RelatedItemGallery from "./RelatedItemGallery"
 
 
 const Product = ({ data, level }) => {
@@ -18,18 +19,6 @@ const Product = ({ data, level }) => {
   } else {
     var content = data;
   }
-
-  // const [movies, setMovies] = useState([]);
-  // getData(data.story.uuid, data.story.lang, content.preview = false, 'movie').then(
-  //   function (result) {
-  //     setMovies(result.data.stories);
-  //   });
-  // const [personalities, setPersonalities] = useState([]);
-  // getData(data.story.uuid, data.story.lang, content.preview = false, 'personality').then(
-  //   function (result) {
-  //     setPersonalities(result.data.stories);
-  //   });
-  //returning the HTML
   return (
     <SbEditable content={content} key={data.uuid}>
       <main>
@@ -38,38 +27,34 @@ const Product = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
-          <div class={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
-          </div>
-          <div className={styles.price}>
-            {content.price}
-          </div>
-          <div className={styles.pictures}>
-            {content.pictures.map((item, index) => (
-              <div className={styles.picture} key={index}>
-                <img src={item.filename} />
+          <div className={styles.producthead}>
+            <div className={styles.producthead_first}>
+              <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}>
               </div>
+            </div>
+            <div className={styles.producthead_second}>
+              <div className={styles.price}>
+                ${content.price}
+              </div>
+              <div className={styles.short}>
+                {render(content.short)}
+              </div>
+            </div>
+          </div>
+
+
+          <div className={styles.imagegallery}>
+            {content.pictures.map((item, index) => (
+              <div className={styles.image} style={{ backgroundImage: `url("${item.filename}")` }}></div>
             ))}
           </div>
-          <div className={styles.short}>
-            {render(content.short)}
-          </div>
+
           <div className={styles.description}>
             {render(content.description)}
           </div>
-          <div>
-            {movies.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            {personalities.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.content.first_name} {item.content.last_name}</a>
-              </div>
-            ))}
-          </div>
+          
+          <RelatedItemGallery items={movies} title="Related Movies" type="movie"></RelatedItemGallery>
+          <RelatedItemGallery items={personalities} title="Related Stars" type="personality"></RelatedItemGallery>
         </div>
       </main>
     </SbEditable>

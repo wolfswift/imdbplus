@@ -53,7 +53,7 @@ const Movie = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.title}
           </h1>
-          <div class={styles.imagegallery}>
+          <div className={styles.imagegallery}>
             {pictures.map((item, index) => (
               <div className={styles.image} style={{ backgroundImage: `url("${item.filename}")` }}></div>
             ))}

@@ -1,3 +1,5 @@
+@import './colors';
+
 html,
 body {
   padding: 0;
@@ -99,4 +101,17 @@ footer {
 
 .react-multiple-carousel__arrow::before {
   color: #000 !important;
+}
+
+.bg-shadow-movie{
+  box-shadow: 10px 10px 0 $color-primary;
+}
+.bg-shadow-personality{
+  box-shadow: 10px 10px 0 $color-primary-personality;
+}
+.bg-shadow-newsitem{
+  box-shadow: 10px 10px 0 $color-primary-newsitem;
+}
+.bg-shadow-product{
+  box-shadow: 10px 10px 0 $color-primary-product;
 }

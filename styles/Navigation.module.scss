@@ -35,6 +35,19 @@
           &:hover {
             border: 5px solid black;
           }
+
+          &.movie:hover {
+            border: 5px solid $color-primary;
+          }
+          &.personality:hover {
+            border: 5px solid $color-primary-personality;
+          }
+          &.newsitem:hover {
+            border: 5px solid $color-primary-newsitem;
+          }
+          &.product:hover {
+            border: 5px solid $color-primary-product;
+          }
         }
 
       }
