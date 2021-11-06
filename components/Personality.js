@@ -3,6 +3,8 @@ import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/Personality.module.scss"
 import { getData } from "../utils/storyblok"
+import InPageSlideshow from "./InPageSlideshow"
+import RelatedItemGallery from "./RelatedItemGallery"
 
 const Personality = ({ data, level }) => {
   if (level === 'data') {
@@ -38,28 +40,13 @@ const Personality = ({ data, level }) => {
           </h1>
 
           <div className={styles.imagegallery}>
-            {pictures.map((item, index) => (
-              <div className={styles.image} style={{ backgroundImage: `url("${item.filename}")` }}></div>
-            ))}
+            <InPageSlideshow pictures={pictures}></InPageSlideshow>
           </div>
           <div className={styles.bio}>
             {render(content.bio)}
           </div>
-
-          <div>
-            {products.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
-              </div>
-            ))}
-          </div>
-          <div>
-            {newsitems.map((item, index) => (
-              <div>
-                <a href={`/${item.full_slug}`} className="">{item.content.title}</a>
-              </div>
-            ))}
-          </div>
+          {products&&products.length>0&&<RelatedItemGallery items={products} title="Merchandise" type="product"></RelatedItemGallery>}
+          {newsitems&&newsitems.length>0&&<RelatedItemGallery items={newsitems} title="News" type="newsitem"></RelatedItemGallery>}
         </div>
       </main>
     </SbEditable>

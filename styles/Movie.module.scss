@@ -1,7 +1,7 @@
 @import '../styles/colors';
 
 .movie {
-  .mainpicture{
+  .mainpicture {
     width: 100%;
     height: 500px;
     background-size: cover;
@@ -9,11 +9,12 @@
     box-shadow: inset 0 0 0px 10px #000;
     margin-bottom: 40px;
   }
-  .short{
+
+  .short {
     font-weight: 800;
   }
 
-  .genrelist{
+  .genrelist {
     display: flex;
     margin-bottom: 40px;
 
@@ -23,7 +24,20 @@
       max-width: 100px;
       margin-right: 10px;
       font-weight: 700;
+    }
   }
+
+  .peoplesegment {
+    margin-top:40px;
+    .title {
+
+      font-size: 1.4em;
+      font-weight: 800;
+      margin-bottom: 20px;
+
+    }
+
+    .content {}
   }
 
   .title {}
@@ -34,31 +48,31 @@
 
   .introduction {}
 
-  .main_poster{
-    img{}
+  .main_poster {
+    img {}
   }
 
-  .writers{
-    .writer{}
+  .writers {
+    .writer {}
   }
 
-  .directors{
-    .director{}
+  .directors {
+    .director {}
   }
 
-  .stars{
-    .star{}
+  .stars {
+    .star {}
   }
 
-  .genres{
-    .genre{}
+  .genres {
+    .genre {}
   }
 
-  .pictures{
-    .picture{}
+  .pictures {
+    .picture {}
   }
 
-  .trailers{
-    .trailer{}
+  .trailers {
+    .trailer {}
   }
 }

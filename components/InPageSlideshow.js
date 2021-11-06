@@ -2,6 +2,7 @@ import React from "react"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "../styles/InPageSlideshow.module.scss"
+import LightBox, { Modal, ModalGateway } from "react-images";
 
 
 const InPageSlideshow = ({ pictures }) => {
@@ -26,6 +27,7 @@ const InPageSlideshow = ({ pictures }) => {
     }
   };
 
+  
 
   //returning the HTML
   return (
@@ -42,11 +44,11 @@ const InPageSlideshow = ({ pictures }) => {
         keyBoardControl={true}
         customTransition="all 0.5s ease-in-out"
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
+        removeArrowOnDeviceType={[]}
         dotListClass="custom-dot-list-style">
-        {pictures.map((item) => {
+        {pictures.map((item, indx) => {
           return (
-            <div className={styles.item}>
+            <div className={styles.item} key={indx}>
               <div className={styles.mainpicture} style={{ backgroundImage: `url("${item.filename}")` }}>
               </div>
             </div>

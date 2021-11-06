@@ -68,19 +68,25 @@ const Movie = ({ data, level }) => {
           <div className={styles.imagegallery}>
             <InPageSlideshow pictures={pictures}></InPageSlideshow>
           </div>
-          
+
           <div className={styles.short}>
             {render(content.short)}
           </div>
           <div className={styles.synopsis}>
             {render(content.synopsis)}
           </div>
-          
-          <RelatedItemGallerySmall items={directors} title="Directors" type="personality"></RelatedItemGallerySmall>
-          <RelatedItemGallerySmall items={writers} title="Writers" type="personality"></RelatedItemGallerySmall>
-          <RelatedItemGallerySmall items={stars} title="Stars" type="personality"></RelatedItemGallerySmall>
-          <RelatedItemGallery items={products} title="Merchandise" type="product"></RelatedItemGallery>
-          <RelatedItemGallery items={newsitems} title="News" type="newsitem"></RelatedItemGallery>
+          <div className={styles.peoplesegment}>
+            <div className={styles.title}>People</div>
+            <div className={styles.content}>
+              {directors && directors.length > 0 && <RelatedItemGallerySmall items={directors} title="Directors" type="personality"></RelatedItemGallerySmall>}
+              {writers && writers.length > 0 && <RelatedItemGallerySmall items={writers} title="Writers" type="personality"></RelatedItemGallerySmall>}
+              {stars && stars.length > 0 && <RelatedItemGallerySmall items={stars} title="Stars" type="personality"></RelatedItemGallerySmall>}
+            </div>
+
+          </div>
+
+          {products && products.length > 0 && <RelatedItemGallery items={products} title="Merchandise" type="product"></RelatedItemGallery>}
+          {newsitems && newsitems.length > 0 && <RelatedItemGallery items={newsitems} title="News" type="newsitem"></RelatedItemGallery>}
         </div>
       </main>
     </SbEditable>

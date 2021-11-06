@@ -5,6 +5,7 @@ import styles from "../styles/Product.module.scss"
 import Storyblok, { useStoryblok, getData } from "../utils/storyblok"
 import RelatedItem from "./RelatedItem"
 import RelatedItemGallery from "./RelatedItemGallery"
+import InPageSlideshow from "./InPageSlideshow"
 
 
 const Product = ({ data, level }) => {
@@ -44,17 +45,17 @@ const Product = ({ data, level }) => {
 
 
           <div className={styles.imagegallery}>
-            {content.pictures.map((item, index) => (
-              <div className={styles.image} style={{ backgroundImage: `url("${item.filename}")` }}></div>
-            ))}
+            <InPageSlideshow pictures={content.pictures}></InPageSlideshow>
           </div>
 
           <div className={styles.description}>
-            {render(content.description)}
+            <div className={styles.title}>Description</div>
+            <div className={styles.content}> {render(content.description)}</div>
+           
           </div>
           
-          <RelatedItemGallery items={movies} title="Related Movies" type="movie"></RelatedItemGallery>
-          <RelatedItemGallery items={personalities} title="Related Stars" type="personality"></RelatedItemGallery>
+          {movies && movies.length > 0 && <RelatedItemGallery items={movies} title="Related Movies" type="movie"></RelatedItemGallery>}
+          {personalities && personalities.length > 0 && <RelatedItemGallery items={personalities} title="Related Stars" type="personality"></RelatedItemGallery>}
         </div>
       </main>
     </SbEditable>
