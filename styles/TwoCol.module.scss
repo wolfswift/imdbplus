@@ -1,0 +1,30 @@
+@import '../styles/colors';
+
+.twocol {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 24px;
+
+  .one {
+    display: grid;
+  }
+
+  .two {
+    display: grid;
+  }
+}
+
+
+
+
+@media (min-width: 1200px) {
+  .twocol {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .one {}
+
+    .two {}
+  }
+}

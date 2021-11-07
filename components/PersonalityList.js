@@ -3,6 +3,7 @@ import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/PersonalityList.module.scss"
 import { getAllItems } from "../utils/storyblok"
+import SmallCardList from "./SmallCardList"
 
 const PersonalityList = ({ data, level }) => {
   if (level === 'data') {
@@ -18,37 +19,9 @@ const PersonalityList = ({ data, level }) => {
 
   return (
 
-    <div className={styles.list}>
-    {items.map((item) => {
-      const lang = item.lang === "default" ? "/en" : `/${item.lang}`;
-      return (
-        <a
-          href={`${lang}/personality/${item.slug}`}
-        >
-          <div
-            key={item.slug}
-            className={styles.item}
-          >
-            <div className={styles.date}>
-              <span className="">
-                {`
-                  ${new Date(item.created_at).getDay()}.
-                  ${new Date(item.created_at).getMonth()}.
-                  ${new Date(item.created_at).getFullYear()}`}
-              </span>
-            </div>
-            <div className={styles.mainpart}>
-
-              <h2 className={styles.title}>
-                {item.content.title}
-              </h2>
-              <p className={styles.summary}>{render(item.content.short)}</p>
-            </div>
-          </div>
-        </a>
-      );
-    })}
-  </div>
+    <div>
+      {items && items.length > 0 && <SmallCardList items={items} type="personality"></SmallCardList>}
+    </div>
 
   );
 };

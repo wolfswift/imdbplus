@@ -18,9 +18,10 @@ import Intro from './Intro'
 import MovieList from './MovieList'
 import NewsItemList from './NewsItemList'
 import PersonalityList from './PersonalityList'
-import ProductList from './ProducList'
+import ProductList from './ProductList'
 import Product from './Product'
 import EmailOptin from './EmailOptin'
+import TwoCol from './TwoCol'
 
 const Components = {
   'teaser': Teaser,
@@ -45,7 +46,8 @@ const Components = {
   'productcategory':Placeholder,
   'personalitylist':PersonalityList,
   'product':Product,
-  'emailoptin':EmailOptin
+  'emailoptin':EmailOptin,
+  'twocol':TwoCol
 }
 
 

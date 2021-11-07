@@ -1,6 +1,8 @@
 import styles from "../styles/NavigationMobile.module.scss"
+import React, { useState } from "react"
 
 const NavigationMobile = ({ locale, locales }) => {
+
   const resolveMovies = {
     en: 'Movies',
     nl: 'Films',
@@ -17,6 +19,13 @@ const NavigationMobile = ({ locale, locales }) => {
     en: 'Shop',
     nl: 'Winkel',
   }
+  function togglenav() {
+    setNavstate(result.data.stories);
+  }
+
+  const [navstate,setNavstate] = useState(false);
+  //setNavstate(true);
+
   const defaultLocale = locale === 'en' ? '/' : `/${locale}/`
   return (
     <header className={styles.navigationmobilewrapper}>
@@ -31,7 +40,8 @@ const NavigationMobile = ({ locale, locales }) => {
             />
           </a>
         </div>
-        <div className={styles.navlinkswrapper}>
+        <div className={styles.hamburger} onClick={() => setNavstate(!navstate)}><div className={styles.line}></div><div className={styles.line}></div><div className={styles.line}></div></div>
+        {navstate&&<div className={styles.navlinkswrapper}>
           <div className={styles.navlinks}>
             <div className={styles.navlink}>
               <a href={`${defaultLocale}pages/movies`} className={styles.movie}>{resolveMovies[locale]}</a>
@@ -55,7 +65,7 @@ const NavigationMobile = ({ locale, locales }) => {
               })
             }
           </div>
-        </div>
+        </div>}
 
       </nav>
     </header>

@@ -5,18 +5,26 @@
 
   margin-top: 20 px;
   display: flex;
-  align-items: center;
+align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 40px;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: center;
+  }
 
 
 
   .title {
 
-      font-size: 1em;
+      font-size: 1.3em;
       font-weight: 800;
       width: 140px;
       display: flex;
       max-width: 300px;
       min-width: 140px;
+      margin-bottom: 20px;
   
   }
 

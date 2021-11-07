@@ -2,7 +2,7 @@ import React from "react"
 import SbEditable from "storyblok-react"
 import { render } from "storyblok-rich-text-react-renderer"
 import styles from "../styles/NewsItem.module.scss"
-import RelatedItemGallery from "./RelatedItemGallery"
+import SmallCardList from "./SmallCardList"
 
 
 
@@ -38,8 +38,8 @@ const NewsItem = ({ data, level }) => {
           <div className={styles.article}>
             {render(content.article)}
           </div>
-          <RelatedItemGallery items={movies} title="Related Movies" type="movie"></RelatedItemGallery>
-          <RelatedItemGallery items={personalities} title="Related Stars" type="personality"></RelatedItemGallery>
+          {movies && movies.length > 0 && <SmallCardList items={movies} title="Related movies" type="movie"></SmallCardList>}
+          {personalities && personalities.length > 0 && <SmallCardList items={personalities} title="Related personalities" type="personality"></SmallCardList>}
       
         </div>
       </main>

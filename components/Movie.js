@@ -6,6 +6,7 @@ import { getData } from "../utils/storyblok"
 import RelatedItemGallerySmall from "./RelatedItemGallerySmall"
 import RelatedItemGallery from "./RelatedItemGallery"
 import InPageSlideshow from "./InPageSlideshow"
+import SmallCardList from "./SmallCardList"
 
 
 
@@ -76,7 +77,6 @@ const Movie = ({ data, level }) => {
             {render(content.synopsis)}
           </div>
           <div className={styles.peoplesegment}>
-            <div className={styles.title}>People</div>
             <div className={styles.content}>
               {directors && directors.length > 0 && <RelatedItemGallerySmall items={directors} title="Directors" type="personality"></RelatedItemGallerySmall>}
               {writers && writers.length > 0 && <RelatedItemGallerySmall items={writers} title="Writers" type="personality"></RelatedItemGallerySmall>}
@@ -85,8 +85,8 @@ const Movie = ({ data, level }) => {
 
           </div>
 
-          {products && products.length > 0 && <RelatedItemGallery items={products} title="Merchandise" type="product"></RelatedItemGallery>}
-          {newsitems && newsitems.length > 0 && <RelatedItemGallery items={newsitems} title="News" type="newsitem"></RelatedItemGallery>}
+          {products && products.length > 0 && <SmallCardList items={products} title="Merchandise" type="product"></SmallCardList>}
+          {newsitems && newsitems.length > 0 && <SmallCardList items={newsitems} title="News" type="newsitem"></SmallCardList>}
         </div>
       </main>
     </SbEditable>
