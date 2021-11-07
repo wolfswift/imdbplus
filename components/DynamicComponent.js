@@ -41,6 +41,7 @@ const Components = {
   'movielist':MovieList,
   'newsitemlist':NewsItemList,
   'productlist':ProductList,
+  'productcategory':Placeholder,
   'personalitylist':PersonalityList,
   'product':Product
 }
