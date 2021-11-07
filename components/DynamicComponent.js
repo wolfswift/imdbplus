@@ -20,6 +20,7 @@ import NewsItemList from './NewsItemList'
 import PersonalityList from './PersonalityList'
 import ProductList from './ProducList'
 import Product from './Product'
+import EmailOptin from './EmailOptin'
 
 const Components = {
   'teaser': Teaser,
@@ -43,7 +44,8 @@ const Components = {
   'productlist':ProductList,
   'productcategory':Placeholder,
   'personalitylist':PersonalityList,
-  'product':Product
+  'product':Product,
+  'emailoptin':EmailOptin
 }
 
 
