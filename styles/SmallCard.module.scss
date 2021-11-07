@@ -1,28 +1,32 @@
 @import '../styles/colors';
 
 a.item {
-  border:10px solid black;
+  border: 10px solid black;
   margin-bottom: 20px;
-  margin-right: 20px;
+  margin-right: 0;
   display: block;
   position: relative;
   text-decoration: none;
-  height: 100%;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
   @media (min-width: 768px) {
     width: 280px;
+    margin-right: 20px;
   }
 
-  .mainpicture{
+  .mainpicture {
     background-size: cover;
-    background-position:center;
+    background-position: center;
     height: 200px;
+
     @media (min-width: 768px) {
       height: 280px;
     }
   }
 
-  .price{
+  .price {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -37,13 +41,15 @@ a.item {
     align-items: center;
   }
 
-  .textpart{
-    text-decoration: none!important;
+  .textpart {
+    text-decoration: none !important;
     padding: 20px;
+
     .title {
       font-size: 1.2em;
       font-weight: 800;
     }
+
     .short {}
   }
 

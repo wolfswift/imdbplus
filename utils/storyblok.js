@@ -9,16 +9,21 @@ const Storyblok = new StoryblokClient({
   },
 });
 
-export async function getAllItems(components) {
-  let { data } = await Storyblok.get(`cdn/stories/`, { version: "draft", filter_query: { component: { in: components } } })
+export async function getAllItems(components, sort_by) {
+  
+  let sbParams = { version: "draft", filter_query: { component: { in: components } }, sort_by: "first_published_at:desc" }
+  if (sort_by) {
+    sbParams.sort_by = sort_by;
+  } 
+  let { data } = await Storyblok.get(`cdn/stories/`, sbParams)
   return {
     data,
     revalidate: 3600, // revalidate every hour
   }
 }
 
-export async function getData(uuid, locale, preview, components, itemtype) {
-  let sbParams = { version: "draft", language: locale, filter_query: { component: { in: components } } }
+export async function getData(uuid, locale, preview, components, itemtype, sortby) {
+  let sbParams = { version: "draft", language: locale, filter_query: { component: { in: components } }, sort_by: "name:asc" }
 
   if (itemtype) {
     switch (itemtype) {
@@ -38,6 +43,12 @@ export async function getData(uuid, locale, preview, components, itemtype) {
         sbParams.filter_query.personalities = { any_in_array: uuid };
         break;
     }
+  }
+
+  if (sortby) {
+    sbParams.sort_by = sort_by;
+  } else {
+    sbParams.sort_by = "name:asc";
   }
 
   if (preview) {
