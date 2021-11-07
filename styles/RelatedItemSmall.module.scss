@@ -11,7 +11,6 @@ a.relateditem {
   text-decoration: none;
   flex-direction: row;
   align-items: center;
-  background-color: #f0f0f0;
   color: black;
 
 
@@ -24,6 +23,10 @@ a.relateditem {
     width: 50px;
     height: 50px;
     /* border: 5px solid; */
+    /* border-radius: 50%; */
+    box-shadow: 5px 5px 0px 0px black;
+
+
 
   }
 

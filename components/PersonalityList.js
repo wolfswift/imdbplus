@@ -40,9 +40,9 @@ const PersonalityList = ({ data, level }) => {
             <div className={styles.mainpart}>
 
               <h2 className={styles.title}>
-                {item.content.first_name} {item.content.last_name}
+                {item.content.title}
               </h2>
-              <p className={styles.summary}>{render(item.content.bio)}</p>
+              <p className={styles.summary}>{render(item.content.short)}</p>
             </div>
           </div>
         </a>

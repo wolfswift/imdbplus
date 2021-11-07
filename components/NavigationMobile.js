@@ -1,6 +1,6 @@
-import styles from "../styles/Navigation.module.scss"
+import styles from "../styles/NavigationMobile.module.scss"
 
-const Navigation = ({ locale, locales }) => {
+const NavigationMobile = ({ locale, locales }) => {
   const resolveMovies = {
     en: 'Movies',
     nl: 'Films',
@@ -19,8 +19,8 @@ const Navigation = ({ locale, locales }) => {
   }
   const defaultLocale = locale === 'en' ? '/' : `/${locale}/`
   return (
-    <header className={styles.navigationwrapper}>
-      <nav className={styles.navigation} role="navigation">
+    <header className={styles.navigationmobilewrapper}>
+      <nav className={styles.navigationmobile} role="navigation">
 
         <div className={styles.navlogo}>
           <a href="/">
@@ -62,4 +62,4 @@ const Navigation = ({ locale, locales }) => {
   )
 }
 
-export default Navigation
+export default NavigationMobile

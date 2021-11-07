@@ -43,7 +43,7 @@ const MovieList = ({ data, level }) => {
                   {item.content.title}
                 </h2>
 
-                <p className={styles.summary}>{render(item.content.summary)}</p>
+                <p className={styles.summary}>{render(item.content.short)}</p>
               </div>
             </div>
           </a>

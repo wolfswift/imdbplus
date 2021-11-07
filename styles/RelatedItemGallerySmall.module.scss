@@ -2,21 +2,26 @@
 
 .relateditemgallery {
 
-    margin-top: 20 px;
-    display: grid;
-    grid-template-columns: repeat(12, 120px);
-    align-items: center;
+
+  margin-top: 20 px;
+  display: flex;
+  align-items: center;
+
 
 
   .title {
-    font-size: 1em;
-    font-weight: 800;
+
+      font-size: 1em;
+      font-weight: 800;
+      width: 140px;
+      display: flex;
+      max-width: 300px;
+      min-width: 140px;
+  
   }
 
   .relateditems {
-    
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-  
+    display: flex;
+    flex-wrap: wrap;
   }
 }
