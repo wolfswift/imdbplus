@@ -6,6 +6,7 @@ import Storyblok, { useStoryblok, getData } from "../utils/storyblok"
 import RelatedItem from "./RelatedItem"
 import RelatedItemGallery from "./RelatedItemGallery"
 import InPageSlideshow from "./InPageSlideshow"
+import SmallCardList from "./SmallCardList"
 
 
 const Product = ({ data, level }) => {
@@ -53,9 +54,8 @@ const Product = ({ data, level }) => {
             <div className={styles.content}> {render(content.description)}</div>
            
           </div>
-          
-          {movies && movies.length > 0 && <RelatedItemGallery items={movies} title="Related Movies" type="movie"></RelatedItemGallery>}
-          {personalities && personalities.length > 0 && <RelatedItemGallery items={personalities} title="Related Stars" type="personality"></RelatedItemGallery>}
+          {movies && movies.length > 0 && <SmallCardList items={movies} title="Related Movies" type="movie"></SmallCardList>}
+          {personalities && personalities.length > 0 && <SmallCardList items={personalities} title="Related Stars" type="personality"></SmallCardList>}
         </div>
       </main>
     </SbEditable>
