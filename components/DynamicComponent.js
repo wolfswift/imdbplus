@@ -22,6 +22,8 @@ import ProductList from './ProductList'
 import Product from './Product'
 import EmailOptin from './EmailOptin'
 import TwoCol from './TwoCol'
+import Title from './Title'
+import TopMovies from './TopMovies'
 
 const Components = {
   'teaser': Teaser,
@@ -47,11 +49,13 @@ const Components = {
   'personalitylist':PersonalityList,
   'product':Product,
   'emailoptin':EmailOptin,
-  'twocol':TwoCol
+  'twocol':TwoCol,
+  'title':Title,
+  'topmovies':TopMovies
 }
 
 
-const DynamicComponent = ({ data }) => {
+const DynamicComponent = ({ data, locale }) => {
   let componentType='undefined';
   let level = 'undefined';
   if(data&&data.story&&data.story.content){
@@ -63,7 +67,7 @@ const DynamicComponent = ({ data }) => {
   }
   if (componentType !== 'undefined') {
     const Component = Components[componentType]
-    return <Component data={data} level={level} />
+    return <Component data={data} level={level} locale={locale}  />
   }
   return <Placeholder componentName={componentType}/>
 }

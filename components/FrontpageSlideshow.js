@@ -10,7 +10,7 @@ import { render } from "storyblok-rich-text-react-renderer"
 
 
 
-const FrontpageSlideshow = ({ data, level }) => {
+const FrontpageSlideshow = ({ data, level, locale }) => {
 
   const responsive = {
     superLargeDesktop: {
@@ -40,7 +40,7 @@ const FrontpageSlideshow = ({ data, level }) => {
 
   const [newsitems, setNewsitems] = useState([]);
 
-  getFPSData(content._uid, content.lang, content.preview = false, 'newsitem').then(
+  getFPSData(content._uid, locale, content.preview = false, 'newsitem').then(
     function (result) {
       setNewsitems(result.data.stories);
     });

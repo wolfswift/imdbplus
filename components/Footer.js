@@ -15,6 +15,9 @@ const Footer = () => {
         <p>IMDB Plus is every bit as good as IMDB. Plus!</p>
       </div>
     </footer>
+
+
+
   )
 }
 

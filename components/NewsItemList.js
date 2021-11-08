@@ -5,14 +5,14 @@ import styles from "../styles/NewsitemList.module.scss"
 import { getAllItems } from "../utils/storyblok"
 import SmallCardList from "./SmallCardList"
 
-const NewsItemList = ({ data, level }) => {
+const NewsItemList = ({ data, level, locale }) => {
   if (level === 'data') {
     var content = data.story.content;
   } else {
     var content = data;
   }
   const [items, setItems] = useState([]);
-  getAllItems('newsitem').then(
+  getAllItems('newsitem', locale).then(
     function (result) {
       setItems(result.data.stories);
     });

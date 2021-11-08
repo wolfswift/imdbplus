@@ -17,13 +17,18 @@ const Navigation = ({ locale, locales }) => {
     en: 'Shop',
     nl: 'Winkel',
   }
+  let homeurl="/";
+  if(locale!='default'){
+    homeurl = "/"+locale;
+  }
+
   const defaultLocale = locale === 'en' ? '/' : `/${locale}/`
   return (
     <header className={styles.navigationwrapper}>
       <nav className={styles.navigation} role="navigation">
 
         <div className={styles.navlogo}>
-          <a href="/">
+          <a href={homeurl}>
             <img
               src="https://a.storyblok.com/f/133261/3039x582/a60d166ec2/logo-colored-full.png/m/200x0"
               alt="IMDBPlus Logo"

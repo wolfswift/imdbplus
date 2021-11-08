@@ -5,14 +5,14 @@ import styles from "../styles/ProductList.module.scss"
 import { getAllItems } from "../utils/storyblok"
 import SmallCardList from "./SmallCardList"
 
-const ProductList = ({ data, level }) => {
+const ProductList = ({ data, level, locale }) => {
   if (level === 'data') {
     var content = data.story.content;
   } else {
     var content = data;
   }
   const [items, setItems] = useState([]);
-  getAllItems('product').then(
+  getAllItems('product', locale).then(
     function (result) {
       setItems(result.data.stories);
     });
