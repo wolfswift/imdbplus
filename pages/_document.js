@@ -38,7 +38,10 @@ export default class MyDocument extends Document {
             s0.parentNode.insertBefore(s1,s0);})();`,
           }}
           />
-         
+
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1446177920850529"
+            crossorigin="anonymous"></script>
+
         </Head>
         <body>
           <Main />
