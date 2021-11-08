@@ -9,6 +9,9 @@ import RelatedItemGallery from "./RelatedItemGallery"
 const Personality = ({ data, level }) => {
   if (level === 'data') {
     var content = data.story.content;
+    var countries = data.rels.filter(obj => {
+      return content.nationality.includes(obj.uuid);
+    });
   } else {
     var content = data;
   }
@@ -38,9 +41,19 @@ const Personality = ({ data, level }) => {
           <h1 className={styles.title}>
             {content.first_name} {content.last_name}
           </h1>
-
+          <div className={styles.countrylist}>
+            {countries.map((item, index) => (
+              <div className={styles.country}>
+                <img src={item.content.flag.filename}></img>
+              </div>
+            ))}
+          </div>
+          <div className={styles.mainpicture} style={{ backgroundImage: `url("${content.mainpicture.filename}")` }}></div>
           <div className={styles.imagegallery}>
             <InPageSlideshow pictures={pictures}></InPageSlideshow>
+          </div>
+          <div className={styles.short}>
+            {render(content.short)}
           </div>
           <div className={styles.bio}>
             {render(content.bio)}
