@@ -24,9 +24,11 @@ h1 {
   font-family: 'Bungee Shade', cursive;
   font-size: 2em;
   line-height: 1.3em;
+
   @media (min-width: 768px) {
     font-size: 2.4em;
   }
+
   @media (min-width: 1024px) {
     font-size: 2.8em;
   }
@@ -109,15 +111,33 @@ footer {
   color: #000 !important;
 }
 
-.bg-shadow-movie{
+.bg-shadow-movie {
   box-shadow: 10px 10px 0 $color-primary;
 }
-.bg-shadow-personality{
+
+.bg-shadow-personality {
   box-shadow: 10px 10px 0 $color-primary-personality;
 }
-.bg-shadow-newsitem{
+
+.bg-shadow-newsitem {
   box-shadow: 10px 10px 0 $color-primary-newsitem;
 }
-.bg-shadow-product{
+
+.bg-shadow-product {
   box-shadow: 10px 10px 0 $color-primary-product;
+}
+
+iframe {
+  body {
+    margin: 0;
+  }
+}
+
+.sib-form {
+  background-attachment: fixed;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  /* padding: 32px 12px 32px; */
+  margin: 0;
+  margin-top: 40px;
 }
