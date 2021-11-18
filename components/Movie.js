@@ -92,7 +92,7 @@ const Movie = ({ data, level }) => {
           </div>
           <div className={styles.imagegallery}>
             <InPageSlideshow pictures={pictures}></InPageSlideshow>
-          </div> 
+          </div>  
 
           <div className={styles.short}>
             {render(content.short)}
