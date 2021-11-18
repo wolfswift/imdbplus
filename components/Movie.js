@@ -84,7 +84,7 @@ const Movie = ({ data, level }) => {
           <div className={styles.genrelist}>
             {genres.map((item, index) => (
               <div className={styles.genre}>
-                Second Jan Commit: {item.content.title}
+                {item.content.title}
               </div>
             ))}
           </div>
