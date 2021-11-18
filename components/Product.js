@@ -33,9 +33,9 @@ const Product = ({ data, level }) => {
             {content.title}
           </h1>
           <div className="sharebar">
-            <FacebookShareButton url={"http://imdbplus.vercel.app/"+data.story.full_slug} quote={"test"} hashtag={'#imdbplus'}><FacebookIcon size={32} round /></FacebookShareButton>
-            <LinkedinShareButton url={"http://imdbplus.vercel.app/"+data.story.full_slug}><LinkedinIcon size={32} round /></LinkedinShareButton>
-            <TwitterShareButton url={"http://imdbplus.vercel.app/"+data.story.full_slug} title={"test"}><TwitterIcon size={32} round /></TwitterShareButton>
+            <FacebookShareButton url={"http://imdbplus.vercel.app/"+data.story.full_slug} quote={content.short} hashtag={'#imdbplus'}><FacebookIcon size={32} round /></FacebookShareButton>
+            <LinkedinShareButton url={"http://imdbplus.vercel.app/"+data.story.full_slug} summary={content.short}><LinkedinIcon size={32} round /></LinkedinShareButton>
+            <TwitterShareButton url={"http://imdbplus.vercel.app/"+data.story.full_slug} title={content.title}><TwitterIcon size={32} round /></TwitterShareButton>
           </div>
           <div className={styles.producthead}>
             <div className={styles.producthead_first}>
