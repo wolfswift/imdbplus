@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      ga.pageview(url)
+      // ga.pageview(url)
     }
     //hotjar.initialize(XXXXXXX, X)
     //When the component is mounted, subscribe to router changes
