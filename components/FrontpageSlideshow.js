@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react"
 import DynamicComponent from './DynamicComponent'
 import SbEditable from 'storyblok-react'
@@ -75,9 +77,7 @@ const FrontpageSlideshow = ({ data, level, locale }) => {
                     <h1 className={styles.title}>
                       {item.content.title}
                     </h1>
-                    <div className={styles.short}>
-                      {render(item.content.short)}
-                    </div></div>
+                  </div>
 
                 </div>
               </div>
