@@ -8,12 +8,36 @@ import RelatedItemGallery from "./RelatedItemGallery"
 import InPageSlideshow from "./InPageSlideshow"
 import SmallCardList from "./SmallCardList"
 
+const resolveDirectors = {
+  en: 'Directors',
+  nl: 'Regisseurs',
+}
 
+const resolveWriters = {
+  en: 'Writers',
+  nl: 'Schrijvers',
+}
+
+const resolveStars = {
+  en: 'Stars',
+  nl: 'Sterren',
+}
+
+const resolveMerchandise = {
+  en: 'Merchandise',
+  nl: 'Producten',
+}
+
+const resolveNews = {
+  en: 'News',
+  nl: 'Nieuws',
+}
 
 const Movie = ({ data, level }) => {
-
+  var locale = 'en';
   //enriching data
   if (level === 'data') {
+    locale = data.story.lang;
     var content = data.story.content;
     var directors = data.rels.filter(obj => {
       return content.directors.includes(obj.uuid);
@@ -35,13 +59,13 @@ const Movie = ({ data, level }) => {
   }
 
   const [products, setProducts] = useState([]);
-  getData(data.story.uuid, data.story.lang, content.preview = false, 'product', 'movies').then(
+  getData(data.story.uuid, locale, content.preview = false, 'product', 'movies').then(
     function (result) {
       setProducts(result.data.stories);
     });
 
   const [newsitems, setNewsitems] = useState([]);
-  getData(data.story.uuid, data.story.lang, content.preview = false, 'newsitem', 'movies').then(
+  getData(data.story.uuid, locale, content.preview = false, 'newsitem', 'movies').then(
     function (result) {
       setNewsitems(result.data.stories);
     });
@@ -60,7 +84,7 @@ const Movie = ({ data, level }) => {
           <div className={styles.genrelist}>
             {genres.map((item, index) => (
               <div className={styles.genre}>
-                {item.name}
+                {item.content.title}
               </div>
             ))}
           </div>
@@ -78,15 +102,15 @@ const Movie = ({ data, level }) => {
           </div>
           <div className={styles.peoplesegment}>
             <div className={styles.content}>
-              {directors && directors.length > 0 && <RelatedItemGallerySmall items={directors} title="Directors" type="personality"></RelatedItemGallerySmall>}
-              {writers && writers.length > 0 && <RelatedItemGallerySmall items={writers} title="Writers" type="personality"></RelatedItemGallerySmall>}
-              {stars && stars.length > 0 && <RelatedItemGallerySmall items={stars} title="Stars" type="personality"></RelatedItemGallerySmall>}
+              {directors && directors.length > 0 && <RelatedItemGallerySmall items={directors} title={resolveDirectors[locale]} type="personality"></RelatedItemGallerySmall>}
+              {writers && writers.length > 0 && <RelatedItemGallerySmall items={writers} title={resolveWriters[locale]} type="personality"></RelatedItemGallerySmall>}
+              {stars && stars.length > 0 && <RelatedItemGallerySmall items={stars} title={resolveStars[locale]} type="personality"></RelatedItemGallerySmall>}
             </div>
 
           </div>
 
-          {products && products.length > 0 && <SmallCardList items={products} title="Merchandise" type="product"></SmallCardList>}
-          {newsitems && newsitems.length > 0 && <SmallCardList items={newsitems} title="News" type="newsitem"></SmallCardList>}
+          {products && products.length > 0 && <SmallCardList items={products} title={resolveMerchandise[locale]} type="product"></SmallCardList>}
+          {newsitems && newsitems.length > 0 && <SmallCardList items={newsitems} title={resolveNews[locale]} type="newsitem"></SmallCardList>}
         </div>
       </main>
     </SbEditable>
