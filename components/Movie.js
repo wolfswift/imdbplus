@@ -9,26 +9,31 @@ import InPageSlideshow from "./InPageSlideshow"
 import SmallCardList from "./SmallCardList"
 
 const resolveDirectors = {
+  default: 'Directors',
   en: 'Directors',
   nl: 'Regisseurs',
 }
 
 const resolveWriters = {
+  default: 'Writers',
   en: 'Writers',
   nl: 'Schrijvers',
 }
 
 const resolveStars = {
+  default: 'Stars',
   en: 'Stars',
   nl: 'Sterren',
 }
 
 const resolveMerchandise = {
+  default: 'Merchandise',
   en: 'Merchandise',
   nl: 'Producten',
 }
 
 const resolveNews = {
+  default: 'News',
   en: 'News',
   nl: 'Nieuws',
 }
