@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
             s1.async=true;
             s1.src='https://embed.tawk.to/XXXXXXXXXXXXXXXXXXXXXXXX/XXXXXXXXX';
             s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
+            s1.setAttribute('crossOrigin','*');
             s0.parentNode.insertBefore(s1,s0);})();`,
           }}
           /> */}
